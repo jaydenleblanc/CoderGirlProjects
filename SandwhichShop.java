@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SandwhichShop
+public class SandwichShop
 {
     public static void main (String[] args)
     {
@@ -11,7 +11,7 @@ public class SandwhichShop
         int goalForSubs = 180;
         int goalForSoup = 70;
 
-        //Veggie Sandwhiches
+        //Veggie Sandwiches
         System.out.print("Checking sales goals.");
         System.out.println();
         System.out.println("The sales goal for veggie sanwiches is 50");
@@ -22,12 +22,10 @@ public class SandwhichShop
         if (countVeggie < goalForVeggies) {
             System.out.println(" Fell Short");
         }
-        else if (countVeggie == goalForVeggies) {
+        else {
             System.out.println(" Made Goal for Veggies!");
         }
-        else  {
-            System.out.println(" Made Goal for Veggies!");
-        }
+
         System.out.println();
 
         // Burgers
@@ -41,9 +39,6 @@ public class SandwhichShop
 
         if(countBurger < goalForBurgers) {
             System.out.println(" Fell Short");
-        }
-        else if (countBurger == goalForBurgers) {
-            System.out.println(" Made Goal for Burgers!");
         }
         else {
             System.out.println("Made Goal for Burgers!");
@@ -60,9 +55,6 @@ public class SandwhichShop
         if(countSubs < goalForSubs) {
             System.out.println("Fell short");
         }
-        else if (countSubs == goalForSubs) {
-            System.out.println("Made Goal for Subs!");
-        }
         else {
             System.out.println("Made Goal for Subs!");
         }
@@ -77,9 +69,6 @@ public class SandwhichShop
 
         if(countSoups < goalForSoup) {
             System.out.println("Fell short");
-        }
-        else if (countSoups == goalForSoup){
-            System.out.println("Made Goal for Soup!");
         }
         else {
             System.out.println("Made Goal for Soup!");
