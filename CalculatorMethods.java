@@ -50,8 +50,8 @@ public class CalculatorMethods
 
             //Now it's your turn! Create a divide() method and write some
             //Print statements to test that it works right.
-            System.out.println("45 times 3 equals " + divide(45, 3));
-            System.out.println("72 times 12 equals " + divide(72, 12));
+            System.out.println("45 divided by 3 equals " + divide(45, 3));
+            System.out.println("72 divided by equals " + divide(72, 12));
 
 
         }
