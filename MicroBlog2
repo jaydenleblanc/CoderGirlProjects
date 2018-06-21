@@ -1,0 +1,181 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class MicroblogPart2 {
+
+    private ArrayList<User> userlist = new ArrayList<User>();
+    private ArrayList<BlogPosts> bloglist = new ArrayList<BlogPosts>();
+    private User selecteduser;
+    private String addedpost;
+    static int postOrder = 0;
+
+
+    public static void main(String[] args) {
+        new MicroblogPart2().printmenu();
+    }
+
+    public void printmenu() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" 1. Create New User, 2. Become an Existing User, 3. Create a post as the Current User, 4. Print all Posts, 5.Print all Users");
+        System.out.println();
+        int menuChoice = keyboard.nextInt();
+        int x = menuChoice;
+
+
+        x = 0;
+
+
+        if (x < 1 && x > 6) {
+            printmenu();
+        }
+        // While loop for print menu
+        // while keyboard options is not 1-6 kick back to main menu
+
+
+        // Loop for Running Through each different Menu Option
+
+        if (menuChoice == 1) {
+            newuser();
+        } else if (menuChoice == 2) {
+            existinguser();
+        } else if (menuChoice == 3) {
+            newpost();
+        } else if (menuChoice == 4) {
+            printallposts();
+        } else if (menuChoice == 5) {
+            printallusers();
+        }
+
+
+        printmenu();
+    }
+
+
+    // Method for creating new user
+    public void newuser() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What would you like your username to be?");
+        System.out.println();
+        String userName1 = keyboard.nextLine();
+        System.out.println("What is your first name?");
+        System.out.println();
+        String firstName1 = keyboard.nextLine();
+        System.out.println("What is your last name?");
+        System.out.println();
+        String lastName1 = keyboard.nextLine();
+        System.out.println();
+        System.out.println("What is your email?");
+        System.out.println();
+        String email1 = keyboard.nextLine();
+
+
+        User user = new User(userName1, firstName1, lastName1, email1);
+        userlist.add(user);
+
+        printmenu();
+
+
+    }
+
+
+    // Method for Becoming an Existing User
+
+    public void existinguser() {
+
+        Scanner keyboard = new Scanner(System.in);
+
+
+        for (int i = 0; i < userlist.size(); i++) {
+            System.out.println(i + 1 + " " + userlist.get(i).getuserName());
+        }
+
+        System.out.println();
+        System.out.println("Select your Username by choosing its number");
+
+
+        int userselection = keyboard.nextInt();
+        selecteduser = userlist.get(userselection - 1);
+
+
+        printmenu();
+    }
+
+
+// Method for creating new post as existing user
+
+    public void newpost() {
+
+
+        if (selecteduser == null) {
+            System.out.println("Please go back and select existing user");
+            return;
+
+        }
+
+        Scanner keyboard = new Scanner(System.in);
+        BlogPosts latestpost = null;
+
+        for (BlogPosts post : bloglist) {
+            User user = post.getuserName();
+
+            if (user == selecteduser)
+                latestpost = post;
+
+        }
+
+        if (latestpost != null) {
+
+
+            System.out.println(latestpost.getblogPost());
+        } else {
+            System.out.println("This user does not have any previous posts");
+        }
+
+
+        User user = selecteduser;
+        System.out.println("Please type next post");
+        String blogpost1 = keyboard.nextLine();
+        System.out.println("Please type in web address");
+        String webaddress1 = keyboard.nextLine();
+
+        postOrder++;
+
+
+        BlogPosts newPost = new BlogPosts(selecteduser, blogpost1, webaddress1, postOrder);
+        bloglist.add(newPost);
+
+
+    }
+
+
+    // Method for Printing all Posts
+
+
+    public void printallposts() {
+        System.out.println("Print all posts by user");
+        for (int i = 0; i < bloglist.size(); i++) {
+            System.out.print("Blog Post: ");
+            System.out.println(i + 1 + " " + bloglist.get(i).getblogPost());
+
+
+        }
+    }
+
+
+// Method for Printing all Users
+
+    public void printallusers() {
+        System.out.println("Print all users");
+        for (int i = 0; i < userlist.size(); i++) {
+            System.out.println(i + " " + userlist.get(i).getuserName());
+
+        }
+
+    }
+
+}
+
+
+
+
