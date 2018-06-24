@@ -1,0 +1,37 @@
+public class BlogPosts {
+
+    User userName = null;
+    private String blogPost;
+    private String webAddress;
+    private int postOrder = 0;
+
+    public BlogPosts (User userName, String blogPost, String webAddress, int order)
+    {
+        this.userName = userName;
+        this.blogPost = blogPost;
+        this.webAddress = webAddress;
+        this.postOrder = order;
+
+    }
+
+
+    public User getuserName() {
+        return userName;
+
+    }
+
+    public String getblogPost() {
+        return blogPost;
+
+    }
+
+    public String getwebAddress () {
+        return webAddress;
+
+    }
+
+    public int getpostOrder () {
+        return postOrder;
+
+    }
+}
